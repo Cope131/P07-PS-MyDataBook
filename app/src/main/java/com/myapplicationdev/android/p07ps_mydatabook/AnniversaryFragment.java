@@ -47,12 +47,15 @@ public class AnniversaryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                View viewDialog = inflater.inflate(R.layout.dialog_edit, null);
+                EditText etDialog = viewDialog.findViewById(R.id.etDialog);
+
+                String retrieveText = tvAnni.getText().toString();
+                etDialog.setText(retrieveText);
                 builder.setTitle("Edit Anniversary");
-                builder.setView(inflater.inflate(R.layout.dialog_edit, null)).setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                builder.setView(viewDialog).setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
-                        Dialog d = (Dialog) dialog;
-                        EditText etDialog = d.findViewById(R.id.etDialog);
                         save(etDialog.getText() + "");
                         tvAnni.setText(etDialog.getText().toString());
                         dialog.dismiss();

@@ -18,7 +18,6 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
 public class AboutActivity extends AppCompatActivity {
-    ImageView ivProgressBar;
     ImageView ivRepublic;
 
     ActionBar ab;
@@ -31,7 +30,6 @@ public class AboutActivity extends AppCompatActivity {
         ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        ivProgressBar = findViewById(R.id.ivLoading);
         ivRepublic = findViewById(R.id.ivRepublic);
 
         Glide.with(AboutActivity.this)

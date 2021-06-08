@@ -2,6 +2,7 @@ package com.myapplicationdev.android.p07ps_mydatabook;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
@@ -20,10 +21,15 @@ public class AboutActivity extends AppCompatActivity {
     ImageView ivProgressBar;
     ImageView ivRepublic;
 
+    ActionBar ab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         ivProgressBar = findViewById(R.id.ivLoading);
         ivRepublic = findViewById(R.id.ivRepublic);

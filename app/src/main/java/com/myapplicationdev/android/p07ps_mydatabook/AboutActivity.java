@@ -34,23 +34,10 @@ public class AboutActivity extends AppCompatActivity {
         ivProgressBar = findViewById(R.id.ivLoading);
         ivRepublic = findViewById(R.id.ivRepublic);
 
-        Glide.with(AboutActivity.this).load(R.drawable.ajax_loader).into(ivProgressBar);
-
         Glide.with(AboutActivity.this)
-                .load("https://otogi.wikiru.jp/attach2/A1FA352FA5CFA5E0A5ECA5C3A5C8_53445FA5CFA5E0A5ECA5C3A5C8305F766963746F72792E676966.gif")
+                .load("https://upload.wikimedia.org/wikipedia/commons/8/80/Republic_Polytechnic_Logo.jpg")
                 .error(R.drawable.error)
-                .listener(new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        return false;
-                    }
-
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        ivProgressBar.setVisibility(View.GONE);
-                        return false;
-                    }
-                })
+                .placeholder(R.drawable.ajax_loader)
                 .into(ivRepublic);
     }
 

@@ -27,7 +27,7 @@ public class AnniversaryFragment extends Fragment {
 
     TextView tvAnni;
     Button btnEdit;
-    FloatingActionButton btnSearch;
+
 //    ActionBarDrawerToggle toggle;
 //    DrawerLayout drawerLayout;
 
@@ -73,7 +73,8 @@ public class AnniversaryFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        tvAnni.setText(getData());
+        String data = getData();
+        tvAnni.setText(data);
     }
 
     private void save(String value) {

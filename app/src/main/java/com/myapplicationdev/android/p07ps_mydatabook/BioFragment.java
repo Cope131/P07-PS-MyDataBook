@@ -2,6 +2,7 @@ package com.myapplicationdev.android.p07ps_mydatabook;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,8 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class BioFragment extends Fragment {
+
+    private final static String TAG = BioFragment.class.getSimpleName();
 
     TextView tvBio;
     Button btnEdit;
@@ -49,6 +53,7 @@ public class BioFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int i) {
                         Dialog d = (Dialog) dialog;
                         EditText etDialog = d.findViewById(R.id.etDialog);
+                        save(etDialog.getText() + "");
                         tvBio.setText(etDialog.getText().toString());
                         dialog.dismiss();
                     }
@@ -64,4 +69,28 @@ public class BioFragment extends Fragment {
         });
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        tvBio.setText(getData());
+    }
+
+    private void save(String value) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences.Editor editor = sp.edit();
+        editor
+                .putString("bio", value)
+                .apply();
+        Log.d(TAG, "Saved");
+    }
+
+    private String getData() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String bio = sp.getString("bio", " ");
+
+        Log.d(TAG, String.format("Bio: %s", bio));
+        return bio;
+    }
+
 }

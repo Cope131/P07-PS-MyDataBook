@@ -38,7 +38,6 @@ public class BioFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bio, container, false);
         tvBio = view.findViewById(R.id.tvBio);
         btnEdit = view.findViewById(R.id.btnEditBio);
-        btnSearch = view.findViewById(R.id.btnSearchBio);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

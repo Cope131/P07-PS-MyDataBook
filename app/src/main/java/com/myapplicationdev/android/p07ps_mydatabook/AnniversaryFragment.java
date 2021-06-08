@@ -38,7 +38,6 @@ public class AnniversaryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_anniversary, container, false);
         tvAnni = view.findViewById(R.id.tvAnni);
         btnEdit = view.findViewById(R.id.btnEditAnni);
-        btnSearch = view.findViewById(R.id.btnSearchAnni);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

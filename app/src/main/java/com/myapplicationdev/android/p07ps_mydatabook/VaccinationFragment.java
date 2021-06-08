@@ -38,7 +38,6 @@ public class VaccinationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_vaccination, container, false);
         tvVac = view.findViewById(R.id.tvVacc);
         btnEdit = view.findViewById(R.id.btnEdit);
-        btnSearch = view.findViewById(R.id.btnSearch);
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

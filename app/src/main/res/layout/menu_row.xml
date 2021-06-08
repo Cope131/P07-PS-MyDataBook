@@ -5,20 +5,26 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
         <ImageView
             android:id="@+id/icon_image"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:src="@drawable/prayingeula"/>
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/prayingeula"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/menu_title"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="This is the menu choice"/>
+            android:text="This is the menu choice"
+            android:gravity="start|center"
+            android:textSize="17sp"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 

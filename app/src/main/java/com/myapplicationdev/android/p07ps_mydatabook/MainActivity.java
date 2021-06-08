@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     private String[] drawerItems;
     private DrawerLayout drawerLayout;
     private ListView drawerList;
-    ArrayAdapter<NavigationItem> aa;
-    ArrayList<NavigationItem> iconList;
-    String currentTitle;
-    ActionBar ab;
-    FloatingActionButton btnFAB;
+    private ArrayAdapter<NavigationItem> aa;
+    private ArrayList<NavigationItem> iconList;
+    private String currentTitle;
+    private ActionBar ab;
+    private FloatingActionButton btnFAB;
 
     private ActionBarDrawerToggle drawerToggle;
 
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerList = findViewById(R.id.right_drawer);
         btnFAB = findViewById(R.id.FAB);
@@ -48,11 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         iconList = new ArrayList<NavigationItem>();
         NavigationItem bio = new NavigationItem("Bio", ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_bio));
-
         NavigationItem medical = new NavigationItem("Vaccination", ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_medical));
-
         NavigationItem calendar = new NavigationItem("Anniversary", ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_calendar));
-
         NavigationItem star = new NavigationItem("About Us", ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_star));
 
         iconList.add(bio);
@@ -132,7 +130,22 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayout.openDrawer(drawerList);
             }
         });
-    }
+
+
+        // Initial Screen (Fragment)
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_frame, new BioFragment())
+                .commit();
+        getSupportActionBar().setTitle("Bio");
+
+
+    } // <-- end of onCreate Method -->
+
+
+
+
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
